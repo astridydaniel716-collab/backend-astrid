@@ -1,5 +1,22 @@
+/**
+ * Importa el modelo `Producto` desde la carpeta de modelos.
+ * Este modelo representa la colección de productos en la base de datos MongoDB,
+ * y permite realizar operaciones como crear, leer, actualizar y eliminar productos (CRUD).
+ */
 const Producto = require('../models/productos');
+
+/**
+ * Objeto `productosCtrl` que agrupa todos los métodos del controlador.
+ * 
+ * Esta estructura permite organizar las funciones relacionadas con los productos,
+ * como obtener todos los productos, obtener uno por ID, crear nuevos,
+ * actualizar y eliminar.
+ * 
+ * Luego este objeto será exportado y utilizado por las rutas (routes/productos.js)
+ * para manejar las solicitudes HTTP.
+ */
 const productosCtrl = {};
+
 
 // Obtener todos los productos
 productosCtrl.getproducto = async (req, res) => {
