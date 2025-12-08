@@ -1,0 +1,75 @@
+# 🚀 Backend Astrid
+
+Este proyecto es un backend desarrollado con **Node.js**, **Express** y **MongoDB**.  
+Aquí encontrarás los endpoints, la estructura del proyecto y las instrucciones para instalar y ejecutar el servidor.
+
+---
+
+## 📂 Estructura del Proyecto
+
+backend/
+│── src/
+│ ├── routes/
+│ ├── controllers/
+│ ├── models/
+│ └── config/
+│── node_modules/
+│── package.json
+│── .env
+│── server.js
+---
+
+## 🔧 Instalación
+
+Clona este repositorio:
+
+git clone https://github.com/astridydaniel716-collab/backend-astrid.git
+
+
+Entra a la carpeta:
+
+cd backend-astrid
+
+Instala las dependencias:
+
+npm install
+
+## ▶️ Ejecutar el servidor
+
+### Modo normal:
+node server.js
+
+shell
+Copiar código
+npm run dev
+
+El servidor corre normalmente en:
+http://localhost:3000
+
+## 📡 Endpoints disponibles
+
+GET /api/usuarios
+POST /api/usuarios
+PUT /api/usuarios/:id
+DELETE /api/usuarios/:id
+GET /api/usuarios/:id
+
+GET /api/productos
+POST /api/productos
+PUT /api/productos/:id
+DELETE /api/productos/:id
+GET /api/productos/:id
+
+## 🛠️ Tecnologías utilizadas
+
+- Node.js
+- Express
+- MongoDB y Mongoose
+- Nodemon (desarrollo)
+- CORS
+- dotenv
+
+---
+
+
+
