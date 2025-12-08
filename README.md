@@ -7,16 +7,20 @@ Aquí encontrarás los endpoints, la estructura del proyecto y las instrucciones
 
 ## 📂 Estructura del Proyecto
 
-backend/
-│── src/
-│ ├── routes/
-│ ├── controllers/
-│ ├── models/
-│ └── config/
-│── node_modules/
-│── package.json
-│── .env
-│── server.js
+mi-backend/
+│
+├── backend/                         # Servidor con Node.js + Express + MongoDB
+│   ├── controllers/
+│   │   └── usuarios.controller.js   # Lógica de negocio de usuarios
+    │   └── productos.controller.js  # Lógica de negocio de productos
+│   ├── models/
+│   │   └── usuarios.js              # Esquema de Mongoose
+│   │   └── productos.js             # Esquema de Mongoose
+│   ├── routes/
+│   │   └── usuarios.routes.js       # Rutas REST del recurso usuarios
+│   │   └── productos.routes.js      # Rutas REST del recurso productos
+│   ├── database.js                  # Conexión a MongoDB
+│   └── index.js                     # Punto de entrada del servidor
 ---
 
 ## 🔧 Instalación
