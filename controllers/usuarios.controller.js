@@ -48,7 +48,6 @@ usuariosCtrl.editarusuario = async (req, res) => {
     const { id } = req.params;
     const usuarioEdit = {
         name: req.body.name,
-        lastname: req.body.lastname,
         email: req.body.email
     };
     await Usuario.findByIdAndUpdate(id, { $set: usuarioEdit }, { new: true });

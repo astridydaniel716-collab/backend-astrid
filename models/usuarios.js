@@ -19,8 +19,8 @@ const { Schema } = mongoose;
  */
 const usuariosSchema = new Schema({
     name: { type: String, require: true },
-    lastname: { type: String, require: true },
-    email: { type: String, require: true },
+    email:  { type: String, required: true, unique: true },
+    password: { type: String, required: true }
 });
 
 /**

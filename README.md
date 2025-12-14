@@ -13,12 +13,14 @@ mi-backend/
 │   ├── controllers/
 │   │   └── usuarios.controller.js   # Lógica de negocio de usuarios
     │   └── productos.controller.js  # Lógica de negocio de productos
+    │   └── auth.controller.js
 │   ├── models/
 │   │   └── usuarios.js              # Esquema de Mongoose
 │   │   └── productos.js             # Esquema de Mongoose
 │   ├── routes/
 │   │   └── usuarios.routes.js       # Rutas REST del recurso usuarios
 │   │   └── productos.routes.js      # Rutas REST del recurso productos
+│       └── auth.routes.js
 │   ├── database.js                  # Conexión a MongoDB
 │   └── index.js                     # Punto de entrada del servidor
 ---

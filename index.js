@@ -66,6 +66,7 @@ app.use(cors({ origin: 'http://localhost:4200' }));
  */
 app.use('/api/usuarios', require('./routes/usuarios.routes'));
 app.use('/api/productos', require('./routes/productos.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 /**
  * ---------------------------
