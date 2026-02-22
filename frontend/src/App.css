@@ -1,0 +1,139 @@
+/* ---------------------- GLOBAL ---------------------- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e4bcec, #f3e8f2);
+  margin: 0;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+/* ---------------------- CONTENEDOR PRINCIPAL ---------------------- */
+.container-main {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ---------------------- TITULOS ---------------------- */
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #3f1749;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #3f1749;
+}
+
+/* ---------------------- TARJETAS (form + tabla) ---------------------- */
+form,
+table {
+  background: #efe9f0;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+form:hover,
+table:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+/* ---------------------- INPUTS ---------------------- */
+input {
+  margin: 8px 5px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  width: 220px;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ac47c5;
+  box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+}
+
+/* ---------------------- BOTONES ---------------------- */
+button {
+  margin: 8px 5px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Botón principal */
+button[type="submit"] {
+  background: linear-gradient(135deg,#ac47c5, #a37aad);
+  color: white;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ac47c5, #a37aad);
+}
+
+/* Botón editar */
+button:nth-child(1) {
+  background-color: #ac47c5;
+  color: black;
+}
+
+button:nth-child(1):hover {
+  background-color: #b077be;
+}
+
+/* Botón eliminar */
+button:nth-child(2) {
+  background-color: #ac47c5;
+  color: white;
+}
+
+button:nth-child(2):hover {
+  background-color: #b077be;
+}
+
+/* ---------------------- TABLA ---------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  }
+
+thead {
+  background: #ac47c5;
+  color: #ebe7ec;
+  text-align: center;
+  
+  
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  
+}
+
+tr:nth-child(even) {
+  background-color: #f2f4f8;
+  
+  
+}
+
+
+
+/* ---------------------- MENSAJE VACIO ---------------------- */
+p {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}

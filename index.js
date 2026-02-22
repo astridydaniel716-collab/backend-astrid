@@ -51,7 +51,7 @@ app.use(express.json());
  * (como Angular que se ejecuta en http://localhost:4200)
  * puedan comunicarse con este backend.
  */
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: 'http://localhost:3001' }));
 
 /**
  * ---------------------------
