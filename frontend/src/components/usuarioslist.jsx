@@ -1,20 +1,20 @@
 // Importamos React y los hooks necesarios
 import React from "react";
 /**
- * Componente EmployeeList
+ * Componente UsuariosList
  * -----------------------
  * Muestra la lista de empleados obtenidos desde el componente padre (App).
  * Permite eliminar empleados y notificar al componente padre cuando se desea editar uno.
  *
  * Props:
- *  - employees: arreglo con los empleados a mostrar (viene desde App)
- *  - onEdit: función callback que recibe el empleado seleccionado para editar.
+ *  - usuarios: arreglo con los usuarios a mostrar (viene desde App)
+ *  - onEdit: función callback que recibe el usuario seleccionado para editar.
  *  - onDeleted: función callback que se ejecuta después de eliminar, para refrescar la lista.
  */
 function UsuariosList({ Usuarios, onEdit, onDeleted }) {
 
   // -------------------- FUNCIÓN ELIMINAR --------------------
-  // handleDelete recibe el ID del empleado a eliminar.
+  // handleDelete recibe el ID del usuario a eliminar.
   // Pide confirmación al usuario y, si acepta, envía la solicitud DELETE al backend.
   const handleDelete = (id) => {
     // Confirmación para evitar eliminaciones accidentales
@@ -33,16 +33,16 @@ function UsuariosList({ Usuarios, onEdit, onDeleted }) {
   };
 
   // -------------------- RENDERIZADO --------------------
-  // Muestra un mensaje si no hay empleados o una tabla si existen registros.
+  // Muestra un mensaje si no hay usuarios o una tabla si existen registros.
   return (
     <div>
       <h2>Lista de Usuarios</h2>
 
-      {/* Si no hay empleados, mostrar un mensaje */}
+      {/* Si no hay usuarios, mostrar un mensaje */}
       {Usuarios.length === 0 ? (
         <p>No hay usuarios registrados.</p>
       ) : (
-        // Si hay empleados, renderizamos una tabla HTML sencilla
+        // Si hay usuarios, renderizamos una tabla HTML sencilla
         <table border="1" cellPadding="5">
           <thead>
             <tr>
@@ -54,18 +54,18 @@ function UsuariosList({ Usuarios, onEdit, onDeleted }) {
           </thead>
 
           <tbody>
-            {/* Recorremos el arreglo de empleados */}
+            {/* Recorremos el arreglo de usuarios */}
             {Usuarios.map((usu) => (
-              // Cada fila debe tener una key única (usamos emp._id)
+              // Cada fila debe tener una key única (usamos usu._id)
               <tr key={usu._id}>
                 <td>{usu.name}</td>
                 <td>{usu.email}</td>
                 
                 <td>
-                  {/* Botón Editar: llama a onEdit pasando el empleado seleccionado */}
+                  {/* Botón Editar: llama a onEdit pasando el usuario seleccionado */}
                   <button onClick={() => onEdit(usu)}>Editar</button>
 
-                  {/* Botón Eliminar: llama a handleDelete con el ID del empleado */}
+                  {/* Botón Eliminar: llama a handleDelete con el ID del usuario */}
                   <button
                     onClick={() => handleDelete(usu._id)}
                     style={{ marginLeft: "10px" }} // Espacio visual entre botones

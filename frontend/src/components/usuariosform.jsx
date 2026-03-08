@@ -2,15 +2,15 @@
 import React, { useState, useEffect } from "react";
 
 /**
- * Componente EmployeeForm
+ * Componente usuariosForm
  * -----------------------
- * Este componente se utiliza para crear o editar empleados.
+ * Este componente se utiliza para crear o editar usuarios.
  * Puede funcionar en dos modos:
- *  - Modo "crear": cuando no hay empleado seleccionado (employeeToEdit = null)
- *  - Modo "editar": cuando se recibe un empleado con sus datos
+ *  - Modo "crear": cuando no hay usuario seleccionado (usuariosToEdit = null)
+ *  - Modo "editar": cuando se recibe un usuario con sus datos
  *
  * Props:
- *  - employeeToEdit: objeto con los datos del empleado a editar (puede ser null)
+ *  - usuariosToEdit: objeto con los datos del usuarios a editar (puede ser null)
  *  - onSaveComplete: función callback que se ejecuta cuando se guarda correctamente
  */
 function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
@@ -24,12 +24,12 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
   
 
   // -------------------- EFECTO DE SINCRONIZACIÓN --------------------
-  // Este useEffect se ejecuta cada vez que cambia la prop employeeToEdit.
-  // Si existe un empleado para editar, los campos se llenan con sus datos.
+  // Este useEffect se ejecuta cada vez que cambia la prop usuariosToEdit.
+  // Si existe un usuarios para editar, los campos se llenan con sus datos.
   // Si no existe (modo creación), se limpian los campos del formulario.
   useEffect(() => {
     if (UsuariosToEdit) {
-      // Precargar datos del empleado seleccionado
+      // Precargar datos del usuario seleccionado
       setName(UsuariosToEdit.name);
       setEmail(UsuariosToEdit.email);
       setPassword(UsuariosToEdit.password);
@@ -41,11 +41,11 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
       setPassword("");
       
     }
-  }, [UsuariosToEdit]); // Se vuelve a ejecutar si cambia employeeToEdit
+  }, [UsuariosToEdit]); // Se vuelve a ejecutar si cambia usuariosToEdit
 
   // -------------------- MANEJO DEL ENVÍO --------------------
   // Esta función controla lo que ocurre al enviar el formulario.
-  // Se encarga de crear o actualizar el empleado según corresponda.
+  // Se encarga de crear o actualizar el usuario según corresponda.
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita que el navegador recargue la página por defecto.
 
@@ -95,11 +95,11 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
 
   // -------------------- RENDERIZADO DEL FORMULARIO --------------------
   // Se muestran los campos de entrada controlados y un botón dinámico.
-  // El texto del botón y el título cambian según si se está creando o editando un empleado.
+  // El texto del botón y el título cambian según si se está creando o editando un usuario.
   return (
     <form onSubmit={handleSubmit}>
       {/* Título dinámico del formulario */}
-      <h2>{UsuariosToEdit ? "Editar Usuario" : "Agregar Usuario"}</h2>
+      <h3>{UsuariosToEdit ? "Editar Usuario" : "Agregar Usuario"}</h3>
 
       {/* Campo de texto: Nombre */}
       <input
@@ -110,7 +110,7 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
         required
       />
     
-
+      {/* Campo de texto: email */}
        <input
         type= "email"
         placeholder="email"

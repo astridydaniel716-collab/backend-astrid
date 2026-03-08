@@ -2,15 +2,15 @@
 import React, { useState, useEffect } from "react";
 
 /**
- * Componente EmployeeForm
+ * Componente productosForm
  * -----------------------
- * Este componente se utiliza para crear o editar empleados.
+ * Este componente se utiliza para crear o editar productos.
  * Puede funcionar en dos modos:
- *  - Modo "crear": cuando no hay empleado seleccionado (employeeToEdit = null)
- *  - Modo "editar": cuando se recibe un empleado con sus datos
+ *  - Modo "crear": cuando no hay productos seleccionado (productosToEdit = null)
+ *  - Modo "editar": cuando se recibe un producto con sus datos
  *
  * Props:
- *  - employeeToEdit: objeto con los datos del empleado a editar (puede ser null)
+ *  - productosToEdit: objeto con los datos del producto a editar (puede ser null)
  *  - onSaveComplete: función callback que se ejecuta cuando se guarda correctamente
  */
 function ProductosForm({ ProductosToEdit, onSaveComplete }) {
@@ -24,12 +24,12 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
   
 
   // -------------------- EFECTO DE SINCRONIZACIÓN --------------------
-  // Este useEffect se ejecuta cada vez que cambia la prop employeeToEdit.
-  // Si existe un empleado para editar, los campos se llenan con sus datos.
+  // Este useEffect se ejecuta cada vez que cambia la prop productosToEdit.
+  // Si existe un productos para editar, los campos se llenan con sus datos.
   // Si no existe (modo creación), se limpian los campos del formulario.
   useEffect(() => {
     if (ProductosToEdit) {
-      // Precargar datos del empleado seleccionado
+      // Precargar datos del producto seleccionado
       setName(ProductosToEdit.name);
       setPrice(ProductosToEdit.price);
       setDescription(ProductosToEdit.description);
@@ -41,11 +41,11 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
       setDescription("");
       
     }
-  }, [ProductosToEdit]); // Se vuelve a ejecutar si cambia employeeToEdit
+  }, [ProductosToEdit]); // Se vuelve a ejecutar si cambia productosToEdit
 
   // -------------------- MANEJO DEL ENVÍO --------------------
   // Esta función controla lo que ocurre al enviar el formulario.
-  // Se encarga de crear o actualizar el empleado según corresponda.
+  // Se encarga de crear o actualizar el productos según corresponda.
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita que el navegador recargue la página por defecto.
 
@@ -95,11 +95,11 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
 
   // -------------------- RENDERIZADO DEL FORMULARIO --------------------
   // Se muestran los campos de entrada controlados y un botón dinámico.
-  // El texto del botón y el título cambian según si se está creando o editando un empleado.
+  // El texto del botón y el título cambian según si se está creando o editando un producto.
   return (
     <form onSubmit={handleSubmit}>
       {/* Título dinámico del formulario */}
-      <h2>{ProductosToEdit ? "Editar Producto" : "Agregar Producto"}</h2>
+      <h3>{ProductosToEdit ? "Editar Producto" : "Agregar Producto"}</h3>
 
       {/* Campo de texto: Nombre */}
       <input
@@ -110,7 +110,7 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
         required
       />
     
-
+      {/* Campo de texto: precio */}
        <input
         type= "number"
         placeholder="Precio"
@@ -118,6 +118,7 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
         onChange={(e) => setPrice(e.target.value)}
         required
       />
+      {/* Campo de texto: Descripción */}
        <input
         type="text"
         placeholder="Descripción del producto"

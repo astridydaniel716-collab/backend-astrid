@@ -1,20 +1,20 @@
 // Importamos React y los hooks necesarios
 import React from "react";
 /**
- * Componente EmployeeList
+ * Componente productosList
  * -----------------------
- * Muestra la lista de empleados obtenidos desde el componente padre (App).
- * Permite eliminar empleados y notificar al componente padre cuando se desea editar uno.
+ * Muestra la lista de productos obtenidos desde el componente padre (App).
+ * Permite eliminar productos y notificar al componente padre cuando se desea editar uno.
  *
  * Props:
- *  - employees: arreglo con los empleados a mostrar (viene desde App)
- *  - onEdit: función callback que recibe el empleado seleccionado para editar.
+ *  - productos: arreglo con los productos a mostrar (viene desde App)
+ *  - onEdit: función callback que recibe el productos seleccionado para editar.
  *  - onDeleted: función callback que se ejecuta después de eliminar, para refrescar la lista.
  */
 function ProductosList({ Productos, onEdit, onDeleted }) {
 
   // -------------------- FUNCIÓN ELIMINAR --------------------
-  // handleDelete recibe el ID del empleado a eliminar.
+  // handleDelete recibe el ID del producto a eliminar.
   // Pide confirmación al usuario y, si acepta, envía la solicitud DELETE al backend.
   const handleDelete = (id) => {
     // Confirmación para evitar eliminaciones accidentales
@@ -33,16 +33,16 @@ function ProductosList({ Productos, onEdit, onDeleted }) {
   };
 
   // -------------------- RENDERIZADO --------------------
-  // Muestra un mensaje si no hay empleados o una tabla si existen registros.
+  // Muestra un mensaje si no hay productos o una tabla si existen registros.
   return (
     <div>
       <h2>Lista de Productos</h2>
 
-      {/* Si no hay empleados, mostrar un mensaje */}
+      {/* Si no hay productos, mostrar un mensaje */}
       {Productos.length === 0 ? (
         <p>No hay productos registrados.</p>
       ) : (
-        // Si hay empleados, renderizamos una tabla HTML sencilla
+        // Si hay productos, renderizamos una tabla HTML sencilla
         <table border="1" cellPadding="5">
           <thead>
             <tr>
@@ -55,19 +55,19 @@ function ProductosList({ Productos, onEdit, onDeleted }) {
           </thead>
 
           <tbody>
-            {/* Recorremos el arreglo de empleados */}
+            {/* Recorremos el arreglo de productos */}
             {Productos.map((prod) => (
-              // Cada fila debe tener una key única (usamos emp._id)
+              // Cada fila debe tener una key única (usamos prod._id)
               <tr key={prod._id}>
                 <td>{prod.name}</td>
                 <td>{prod.price}</td>
                 <td>{prod.description}</td>
                 
                 <td>
-                  {/* Botón Editar: llama a onEdit pasando el empleado seleccionado */}
+                  {/* Botón Editar: llama a onEdit pasando el producto seleccionado */}
                   <button onClick={() => onEdit(prod)}>Editar</button>
 
-                  {/* Botón Eliminar: llama a handleDelete con el ID del empleado */}
+                  {/* Botón Eliminar: llama a handleDelete con el ID del producto */}
                   <button
                     onClick={() => handleDelete(prod._id)}
                     style={{ marginLeft: "10px" }} >Eliminar</button>
