@@ -24,26 +24,26 @@ const Usuario = require('../models/usuarios');
 const usuariosCtrl = {};
 
 
-// Obtener todos los productos
+// Obtener todos los usuarios
 usuariosCtrl.getusuario = async (req, res) => {
     const usuarios = await Usuario.find();
     res.json(usuarios);
 };
 
-// Crear producto
+// Crear usuario
 usuariosCtrl.createusuario = async (req, res) => { 
     const nuevoUsuario = new Usuario(req.body);
     await nuevoUsuario.save();
     res.json({ status: 'usuario guardado' });
 };
 
-// Conseguir un único producto
+// Conseguir un único usuario
 usuariosCtrl.getUnicousuario = async (req, res) => {
     const usuarioUnico = await Usuario.findById(req.params.id);
     res.json(usuarioUnico);
 };
 
-// Actualizar producto
+// Actualizar usuario
 usuariosCtrl.editarusuario = async (req, res) => {
     const { id } = req.params;
     const usuarioEdit = {
@@ -54,7 +54,7 @@ usuariosCtrl.editarusuario = async (req, res) => {
     res.json({ status: 'usuario actualizado' });
 };
 
-// Eliminar producto
+// Eliminar usuario
 usuariosCtrl.eliminarusuario = async (req, res) => {
     await Usuario.findByIdAndDelete(req.params.id);
     res.json({ status: 'usuario eliminado' });

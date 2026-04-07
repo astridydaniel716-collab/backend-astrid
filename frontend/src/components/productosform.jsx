@@ -121,7 +121,7 @@ function ProductosForm({ ProductosToEdit, onSaveComplete }) {
       {/* Campo de texto: Descripción */}
        <input
         type="text"
-        placeholder="Descripción del producto"
+        placeholder="Descripción"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required

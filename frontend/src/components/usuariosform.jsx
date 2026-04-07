@@ -105,7 +105,7 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
       <input
         type="text"
         placeholder="Nombre"
-        value={name}
+        value={name || ""}
         onChange={(e) => setName(e.target.value)}
         required
       />
@@ -113,15 +113,15 @@ function UsuariosForm({ UsuariosToEdit, onSaveComplete }) {
       {/* Campo de texto: email */}
        <input
         type= "email"
-        placeholder="email"
-        value={email}
+        placeholder="Email"
+        value={email || ""}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
        <input
         type="password"
         placeholder="password"
-        value={password}
+        value={password || ""}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
