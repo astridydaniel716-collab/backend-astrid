@@ -19,7 +19,7 @@ describe('productos.controller', () => {
 
   // ✅ GET TODOS
   test('getproducto responde con la lista obtenida del modelo', async () => {
-    const productos = [{ name: 'Alfajores' }, { name: 'Brownies' }];
+    const productos = [{ _id: 'prod-1', name: 'Alfajores', price: "2500", description: 'rellenos de arequipe'}, { _id: 'prod-2',name: 'Brownies', price: "4500", description: 'con topping de arequipe' }];
     Producto.find.mockResolvedValue(productos);
 
     const res = createResponse();
@@ -32,7 +32,7 @@ describe('productos.controller', () => {
 
    // ✅ GET POR ID
   test('getUnicoproducto busca por id y responde el documento', async () => {
-    const producto = { _id: 'prod-1', name: 'Alfajores' };
+    const producto = { _id: 'prod-1', name: 'Alfajores', price: "2500", description: 'rellenos con arequipe' };
     Producto.findById.mockResolvedValue(producto);
 
     const res = createResponse();
@@ -49,7 +49,7 @@ describe('productos.controller', () => {
 
     const req = {
       params: { id: 'prod-1' },
-      body: { name: 'Alfajores', price: 2500, description: 'rellenos con arequipe' },
+      body: { name: 'Alfajores', price: 2600, description: 'rellenos con arequipe' },
     };
 
     const res = createResponse();
@@ -61,7 +61,7 @@ describe('productos.controller', () => {
       {
         $set: {
           name: 'Alfajores',
-          price: 2500,
+          price: 2600,
           description: 'rellenos con arequipe',
         },
       },

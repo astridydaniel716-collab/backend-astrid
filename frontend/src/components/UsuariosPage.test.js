@@ -35,12 +35,31 @@ describe("UsuariosPage", () => {
 
 });
 
-test("no envía el formulario si los campos están vacíos", async () => {
+test("no debe enviar el formulario si los campos están vacíos", async () => {
+  global.fetch = jest.fn((url, options) => {
+    if (!options) {
+      return Promise.resolve({
+        json: () => Promise.resolve([]), // ✅ array
+      });
+    }
+
+    return Promise.resolve({
+      json: () => Promise.resolve({}),
+    });
+  });
+
   render(<UsuariosPage />);
+
+  // Esperar fetch inicial
+  await waitFor(() => {
+    expect(global.fetch).toHaveBeenCalled();
+  });
+
+  global.fetch.mockClear();
 
   fireEvent.click(screen.getByText("Guardar"));
 
   await waitFor(() => {
-    expect(global.fetch).toHaveBeenCalled();
+    expect(global.fetch).not.toHaveBeenCalled();
   });
 });

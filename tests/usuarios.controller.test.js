@@ -19,7 +19,7 @@ describe('usuarios.controller', () => {
 
   // ✅ GET TODOS
   test('getusuario responde con la lista obtenida del modelo', async () => {
-    const usuarios = [{ name: 'Astrid' }, { name: 'Daniel' }];
+    const usuarios = [{ name: 'Astrid', email: 'astrid@mail.com' }, { name: 'Daniel', email: 'daniel@mail.com' }];
     Usuario.find.mockResolvedValue(usuarios);
 
     const res = createResponse();
@@ -49,7 +49,7 @@ describe('usuarios.controller', () => {
 
     const req = {
       params: { id: 'usu-1' },
-      body: { name: 'Astrid', email: 'astrid@mail.com' },
+      body: { name: 'Astrid Valencia', email: 'astrid@mail.com' },
     };
 
     const res = createResponse();
@@ -60,7 +60,7 @@ describe('usuarios.controller', () => {
       'usu-1',
       {
         $set: {
-          name: 'Astrid',
+          name: 'Astrid Valencia',
           email: 'astrid@mail.com',
         },
       },
